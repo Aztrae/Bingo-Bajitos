@@ -25,7 +25,7 @@
             object-fit: cover;
         }
         .oscurecida {
-            filter: brightness(0.2);
+            filter: brightness(0.19);
         }
         @media (max-width: 600px) {
             .cuadricula {
@@ -39,81 +39,109 @@
     <div class="cuadricula" id="cuadricula"></div>
     <script>
         const imagenes = [
-            'https://picsum.photos/100/100?random=1',
-            'https://picsum.photos/100/100?random=2',
-            'https://picsum.photos/100/100?random=3',
-            'https://picsum.photos/100/100?random=4',
-            'https://picsum.photos/100/100?random=5',
-            'https://picsum.photos/100/100?random=6',
-            'https://picsum.photos/100/100?random=7',
-            'https://picsum.photos/100/100?random=8',
-            'https://picsum.photos/100/100?random=9',
-            'https://picsum.photos/100/100?random=10',
-            'https://picsum.photos/100/100?random=11',
-            'https://picsum.photos/100/100?random=12',
-            'https://picsum.photos/100/100?random=13',
-            'https://picsum.photos/100/100?random=14',
-            'https://picsum.photos/100/100?random=15',
-            'https://picsum.photos/100/100?random=16',
-            'https://picsum.photos/100/100?random=17',
-            'https://picsum.photos/100/100?random=18',
-            'https://picsum.photos/100/100?random=19',
-            'https://picsum.photos/100/100?random=20',
-            'https://picsum.photos/100/100?random=21',
-            'https://picsum.photos/100/100?random=22',
-            'https://picsum.photos/100/100?random=23',
-            'https://picsum.photos/100/100?random=24',
-            'https://picsum.photos/100/100?random=25',
-            'https://picsum.photos/100/100?random=26',
-            'https://picsum.photos/100/100?random=27',
-            'https://picsum.photos/100/100?random=28',
-            'https://picsum.photos/100/100?random=29',
-            'https://picsum.photos/100/100?random=30',
-            'https://picsum.photos/100/100?random=31',
-            'https://picsum.photos/100/100?random=32',
-            'https://picsum.photos/100/100?random=33',
-            'https://picsum.photos/100/100?random=34',
-            'https://picsum.photos/100/100?random=35',
-            'https://picsum.photos/100/100?random=36',
-            'https://picsum.photos/100/100?random=37',
-            'https://picsum.photos/100/100?random=38',
-            'https://picsum.photos/100/100?random=39',
-            'https://picsum.photos/100/100?random=40',
-            'https://picsum.photos/100/100?random=41',
-            'https://picsum.photos/100/100?random=42',
-            'https://picsum.photos/100/100?random=43',
-            'https://picsum.photos/100/100?random=44',
-            'https://picsum.photos/100/100?random=45',
-            'https://picsum.photos/100/100?random=46',
-            'https://picsum.photos/100/100?random=47',
-            'https://picsum.photos/100/100?random=48',
-            'https://picsum.photos/100/100?random=49',
-            'https://picsum.photos/100/100?random=50',
-            'https://picsum.photos/100/100?random=51',
-            'https://picsum.photos/100/100?random=52',
-            'https://picsum.photos/100/100?random=53',
-            'https://picsum.photos/100/100?random=54',
-            'https://picsum.photos/100/100?random=55',
-            'https://picsum.photos/100/100?random=56',
-            'https://picsum.photos/100/100?random=57',
-            'https://picsum.photos/100/100?random=58',
-            'https://picsum.photos/100/100?random=59',
-            'https://picsum.photos/100/100?random=60',
-            'https://picsum.photos/100/100?random=61',
-            'https://picsum.photos/100/100?random=62',
-            'https://picsum.photos/100/100?random=63',
-            'https://picsum.photos/100/100?random=64'
+//Allrounders
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Aegislash.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Azumarill.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Blaziken.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Buzzwole.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Ceruledge.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Charizard.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Dragonite.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Falinks.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Garchomp.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Gyarados.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Lucario.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Machamp.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Metagross.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/MewtwoX.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Mimikyu.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Scizor.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Scyther.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Suicune.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Tinkaton.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Tsareena.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Tyranitar.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Urshifu.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Zacian.png',
+//Atacantes
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Armarouge.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Chandelure.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Cinderace.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Cramorant.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Decidueye.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Delphox.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Dragapult.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Duraludon.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Espeon.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Gardevoir.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Glaceon.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Greninja.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Inteleon.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Latios.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Mew.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/MewtwoY.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Miraidon.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Ninetales.png',
+	    'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Pikachu.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Raichu.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Sylveon.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Venusaur.png',
+//Defensivos
+
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Blastoise.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Crustle.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Goodra.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Greedent.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Ho-Oh.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Lapras.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Mamoswine.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Slowbro.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Snorlax.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Trevenant.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Umbreon.png',
+
+//Speedsters
+
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Absol.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Darkrai.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Dodrio.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Gengar.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Leafeon.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Meowscarada.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Rapidash.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Talonflame.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Zeraora.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Zoroark.png',
+
+//Supp
+
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Alcremie.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Blissey.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Clefable.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Comfey.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Eldegoss.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Hoopa.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Latias.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Mr.Mime.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Psyduck.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Sableye.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Wigglytuff.png',
+
+
         ];
-//Esto corresponde a si está vivo o no S/N
+//Esto corresponde a si está muerto o no S/N
         const estados = [
-            'S', 'N', 'N', 'N', 'N', 'N', 'N', 'N', // Fila 1
+            'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', // Fila 1
             'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', // Fila 2
             'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', // Fila 3
             'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', // Fila 4
             'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', // Fila 5
             'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', // Fila 6
             'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', // Fila 7
-            'S', 'N', 'N', 'N', 'N', 'N', 'N', 'N'  // Fila 8
+            'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', // Fila 8
+	    'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', // Fila 9
+            'N', 'S', 'N', 'N', 'N', // Futuros 'N', 'N', 'N', // Fila 10
+
         ];
 
         function cargarCuadricula() {
