@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bajito 1 - Cuadrícula</title>
-    <style>
+   <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
@@ -27,14 +27,39 @@
         .oscurecida {
             filter: brightness(0.19);
         }
+        .boton-volver {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .boton-volver:hover {
+            background-color: #0056b3;
+       
+        }
         @media (max-width: 600px) {
             .cuadricula {
                 grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
             }
+            .boton-volver {
+                width: 100%;
+                padding: 8px;
+                font-size: 14px;
+            }
+            .separador-dummy {
+                font-size: 18px;
+            }
         }
-    </style>
+</style>
 </head>
 <body>
+    <button class="boton-volver" onclick="window.location.href='./index.html'">Volver</button>
     <h1>Cuadrícula de Imágenes - Bajito 1</h1>
     <div class="cuadricula" id="cuadricula"></div>
     <script>
