@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bajito 2 - Cuadrícula</title>
-   <style>
+    <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
@@ -25,7 +25,22 @@
             object-fit: cover;
         }
         .oscurecida {
-            filter: brightness(0.19);
+            filter: brightness(0.5);
+        }
+        .marco-violeta {
+            border: 5px solid purple;
+        }
+        .marco-rojo {
+            border: 5px solid red;
+        }
+        .marco-verde {
+            border: 5px solid green;
+ 	}
+        .marco-amarillo {
+            border: 5px solid yellow;
+        }
+        .marco-celeste {
+            border: 5px solid cyan;
         }
         .boton-volver {
             display: inline-block;
@@ -41,7 +56,14 @@
         }
         .boton-volver:hover {
             background-color: #0056b3;
-       
+        }
+        .separador-dummy {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
         }
         @media (max-width: 600px) {
             .cuadricula {
@@ -55,13 +77,17 @@
             .separador-dummy {
                 font-size: 18px;
             }
+            .marco-violeta, .marco-rojo, .marco-verde, .marco-celeste {
+                border-width: 3px;
+            }
         }
-</style>
+    </style>
 </head>
 <body>
     <button class="boton-volver" onclick="window.location.href='./index.html'">Volver</button>
     <h1>Cuadrícula de Imágenes - Bajito 2</h1>
     <div class="cuadricula" id="cuadricula"></div>
+    <div class="separador-dummy">Dummy</div>
     <script>
         const imagenes = [
 //Allrounders
@@ -168,7 +194,6 @@
             'N', 'S', 'N', 'N', 'N', // Futuros 'N', 'N', 'N', // Fila 10
 
         ];
-
         function cargarCuadricula() {
             const cuadricula = document.getElementById('cuadricula');
             cuadricula.innerHTML = '';
@@ -178,6 +203,11 @@
                 img.src = src;
                 img.classList.add('imagen');
                 if (estados[index] === 'S') img.classList.add('oscurecida');
+                if (index < 23) img.classList.add('marco-violeta');
+                else if (index < 45) img.classList.add('marco-rojo');
+                else if (index < 56) img.classList.add('marco-verde');
+		else if (index < 66) img.classList.add('marco-celeste');
+                else img.classList.add('marco-amarillo');
                 cuadricula.appendChild(img);
             });
         }
