@@ -3,36 +3,181 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página 1 - Cuadrícula</title>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; }
-        .cuadricula { display: grid; grid-template-columns: repeat(8, 1fr); gap: 10px; max-width: 800px; margin: 0 auto; }
-        .imagen { width: 100%; height: auto; cursor: pointer; transition: filter 0.3s; }
-        .oscurecida { filter: brightness(0.5); }
-    </style>
+    <title>Bajito 5 - Cuadrícula</title>
+   <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .cuadricula {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 10px;
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+        .imagen {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        .oscurecida {
+            filter: brightness(0.19);
+        }
+        .boton-volver {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .boton-volver:hover {
+            background-color: #0056b3;
+       
+        }
+        @media (max-width: 600px) {
+            .cuadricula {
+                grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            }
+            .boton-volver {
+                width: 100%;
+                padding: 8px;
+                font-size: 14px;
+            }
+            .separador-dummy {
+                font-size: 18px;
+            }
+        }
+</style>
 </head>
 <body>
-    <h1>Cuadrícula de Imágenes - Página 1</h1>
+    <button class="boton-volver" onclick="window.location.href='./index.html'">Volver</button>
+    <h1>Cuadrícula de Imágenes - Bajito 5</h1>
     <div class="cuadricula" id="cuadricula"></div>
     <script>
-        const storageKey = 'cuadriculaPagina5';  // Cambia esto por 'cuadriculaPagina2', etc., en otros archivos
-        const imagenes = Array.from({ length: 64 }, (_, i) => `https://picsum.photos/100/100?random=${i + 1}`);
+        const imagenes = [
+//Allrounders
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Aegislash.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Azumarill.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Blaziken.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Buzzwole.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Ceruledge.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Charizard.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Dragonite.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Falinks.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Garchomp.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Gyarados.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Lucario.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Machamp.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Metagross.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/MewtwoX.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Mimikyu.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Scizor.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Scyther.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Suicune.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Tinkaton.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Tsareena.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Tyranitar.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Urshifu.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Zacian.png',
+//Atacantes
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Armarouge.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Chandelure.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Cinderace.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Cramorant.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Decidueye.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Delphox.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Dragapult.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Duraludon.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Espeon.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Gardevoir.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Glaceon.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Greninja.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Inteleon.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Latios.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Mew.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/MewtwoY.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Miraidon.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Ninetales.png',
+	    'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Pikachu.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Raichu.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Sylveon.png',
+            'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Venusaur.png',
+//Defensivos
+
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Blastoise.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Crustle.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Goodra.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Greedent.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Ho-Oh.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Lapras.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Mamoswine.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Slowbro.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Snorlax.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Trevenant.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Umbreon.png',
+
+//Speedsters
+
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Absol.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Darkrai.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Dodrio.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Gengar.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Leafeon.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Meowscarada.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Rapidash.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Talonflame.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Zeraora.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Zoroark.png',
+
+//Supp
+
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Alcremie.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Blissey.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Clefable.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Comfey.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Eldegoss.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Hoopa.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Latias.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Mr.Mime.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Psyduck.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Sableye.png',
+'https://d275t8dp8rxb42.cloudfront.net/pokemon/thumbnail/Wigglytuff.png',
+
+
+        ];
+//Esto corresponde a si está muerto o no S/N
+        const estados = [
+            'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', // Fila 1
+            'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', // Fila 2
+            'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', // Fila 3
+            'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', // Fila 4
+            'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', // Fila 5
+            'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', // Fila 6
+            'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', // Fila 7
+            'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', // Fila 8
+	    'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', // Fila 9
+            'N', 'S', 'N', 'N', 'N', // Futuros 'N', 'N', 'N', // Fila 10
+
+        ];
 
         function cargarCuadricula() {
             const cuadricula = document.getElementById('cuadricula');
             cuadricula.innerHTML = '';
-            const estadosGuardados = JSON.parse(localStorage.getItem(storageKey)) || Array(64).fill(false);
 
             imagenes.forEach((src, index) => {
                 const img = document.createElement('img');
                 img.src = src;
                 img.classList.add('imagen');
-                if (estadosGuardados[index]) img.classList.add('oscurecida');
-                img.addEventListener('click', () => {
-                    img.classList.toggle('oscurecida');
-                    estadosGuardados[index] = img.classList.contains('oscurecida');
-                    localStorage.setItem(storageKey, JSON.stringify(estadosGuardados));
-                });
+                if (estados[index] === 'S') img.classList.add('oscurecida');
                 cuadricula.appendChild(img);
             });
         }
@@ -41,3 +186,4 @@
     </script>
 </body>
 </html>
+
