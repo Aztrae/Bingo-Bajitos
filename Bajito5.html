@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página 1 - Cuadrícula</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .cuadricula { display: grid; grid-template-columns: repeat(8, 1fr); gap: 10px; max-width: 800px; margin: 0 auto; }
+        .imagen { width: 100%; height: auto; cursor: pointer; transition: filter 0.3s; }
+        .oscurecida { filter: brightness(0.5); }
+    </style>
+</head>
+<body>
+    <h1>Cuadrícula de Imágenes - Página 1</h1>
+    <div class="cuadricula" id="cuadricula"></div>
+    <script>
+        const storageKey = 'cuadriculaPagina1';  // Cambia esto por 'cuadriculaPagina2', etc., en otros archivos
+        const imagenes = Array.from({ length: 64 }, (_, i) => `https://picsum.photos/100/100?random=${i + 1}`);
+
+        function cargarCuadricula() {
+            const cuadricula = document.getElementById('cuadricula');
+            cuadricula.innerHTML = '';
+            const estadosGuardados = JSON.parse(localStorage.getItem(storageKey)) || Array(64).fill(false);
+
+            imagenes.forEach((src, index) => {
+                const img = document.createElement('img');
+                img.src = src;
+                img.classList.add('imagen');
+                if (estadosGuardados[index]) img.classList.add('oscurecida');
+                img.addEventListener('click', () => {
+                    img.classList.toggle('oscurecida');
+                    estadosGuardados[index] = img.classList.contains('oscurecida');
+                    localStorage.setItem(storageKey, JSON.stringify(estadosGuardados));
+                });
+                cuadricula.appendChild(img);
+            });
+        }
+
+        window.onload = cargarCuadricula;
+    </script>
+</body>
+</html>
