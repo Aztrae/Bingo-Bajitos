@@ -48,7 +48,7 @@
             border: 5px solid cyan;
  }
         .marco-amarillo {
-            border: 5px solid cyan;
+            border: 5px solid Yellow;
         }
         .boton-volver {
             display: inline-block;
@@ -215,8 +215,8 @@
                 if (index < 23) img.classList.add('marco-violeta');
                 else if (index < 45) img.classList.add('marco-rojo');
                 else if (index < 56) img.classList.add('marco-verde');
-		else if (index < 66) img.classList.add('marco-celeste');
-                else img.classList.add('marco-amarillo');
+		        else if (index < 66) img.classList.add('marco-celeste');
+                else if (index > 65) img.classList.add('marco-amarillo');
              contenedor.appendChild(img);
                 cuadricula.appendChild(contenedor);
             });
